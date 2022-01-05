@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.koreait.jenkinsproject.repository.BoardRepository">
+
+	<insert id="insertBoard" parameterType="Board">
+		<selectKey keyProperty="boardNo" order="BEFORE" resultType="Long">
+			SELECT BOARD_SEQ.NEXTVAL
+			  FROM BOARD
+		</selectKey>
+		INSERT INTO BOARD
+		VALUES (#{boardNo}, #{title}, #{content}, #{writer}, #{ip}, SYSDATE, SYSDATE)
+	</insert>
+
+</mapper>
