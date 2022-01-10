@@ -49,7 +49,6 @@ public class MemberServiceImpl implements MemberService {
 		int result = repository.insertMember(member);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("result", result);
-		map.put("memberNo", member.getMemberNo());
 		return map;
 	}
 
